@@ -1,0 +1,27 @@
+{
+  "name": "feliz.error",
+  "version": "0.0.1",
+  "description": "Simple error management for feliz.js projects",
+  "main": "lib/index.js",
+  "author": "Héctor Menéndez <etor@gik.mx>",
+  "license": "MIT",
+  "analyze": true,
+  "keywords": [
+    "feliz",
+    "helper",
+    "error",
+    "exception"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gikmx/feliz.error"
+  },
+  "bugs": {
+    "url": "https://github.com/gikmx/feliz.error/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+  }
+}
