@@ -1,6 +1,6 @@
 {
   "name": "feliz.error",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple error management for feliz.js projects",
   "main": "lib/index.js",
   "author": "Héctor Menéndez <etor@gik.mx>",
