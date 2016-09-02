@@ -5,3 +5,4 @@ coverage
 .DS_*
 README.md
 
+.tern-port
