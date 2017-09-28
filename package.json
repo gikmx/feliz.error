@@ -1,56 +1,52 @@
 {
-  "name": "feliz.error",
-  "version": "0.1.0",
-  "description": "Simple error management for feliz.js projects",
-  "main": "lib/index.js",
-  "author": "Héctor Menéndez <etor@gik.mx>",
-  "license": "MIT",
-  "analyze": true,
-  "keywords": [
-    "feliz",
-    "helper",
-    "error",
-    "exception"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gikmx/feliz.error"
-  },
-  "bugs": {
-    "url": "https://github.com/gikmx/feliz.error/issues"
-  },
-  "engines": {
-    "node": ">=6.2.0"
-  },
-  "scripts": {
-    "docs": "jsdoc2md -t ./template.hbs -d 1 'lib/**/*.js' > README.md",
-    "postdocs": "git add --force README.md",
-    "test": "tape ./test | tap-spec",
-    "debug": "node-debug --cli --no-debug-brk --debug-port 5900 --web-port 9900 --save-live-edit --no-preload",
-    "debug:watch": "nodemon ./test -x 'npm run docs && npm run debug -s' -w ./lib -w ./test | tap-spec",
-    "cover": "npm run cover:stats && npm run cover:send",
-    "cover:check": "npm run cover:stats && istanbul check-coverage",
-    "cover:stats": "istanbul cover tape -- ./test",
-    "cover:send": "cat ./coverage/lcov.info | coveralls",
-    "postversion": "git add package.json",
-    "precommit": "npm test && npm run cover:check && npm run docs && npm version prerelease --no-git-tag-version"
-  },
-  "peerDependencies": {
-    "feliz": "0.1.0"
-  },
-  "dependencies": {
-    "chalk": "^2.1.0",
-    "columnify": "^1.5.4",
-    "debug": "^3.1.0",
-    "stack-trace": "0.0.10"
-  },
-  "devDependencies": {
-    "coveralls": "^2.13.1",
-    "husky": "^0.14.3",
-    "istanbul": "^0.4.5",
-    "jsdoc-to-markdown": "^3.0.0",
-    "nodemon": "^1.12.1",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.8.0"
-  }
+    "name": "@gik/tools-thrower",
+    "version": "0.1.0",
+    "description": "A simple error manager",
+    "license": "MIT",
+    "collaborators":[
+        "Héctor Menéndez <etor@gik.mx>"
+    ],
+    "keywords": [
+        "error",
+        "exception"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gikmx/tools-thrower"
+    },
+    "bugs": {
+        "url": "https://github.com/gikmx/tools-thrower/issues"
+    },
+    "engines": {
+        "node": ">=6.2.0"
+    },
+    "main": "src/index.js",
+    "scripts": {
+        "docs": "jsdoc2md -t ./template.hbs -d 1 'lib/**/*.js' > README.md",
+        "postdocs": "git add --force README.md",
+        "test": "tape ./test | tap-spec",
+        "debug": "node-debug --cli --no-debug-brk --debug-port 5900 --web-port 9900 --save-live-edit --no-preload",
+        "debug:watch": "nodemon ./test -x 'npm run docs && npm run debug -s' -w ./lib -w ./test | tap-spec",
+        "cover": "npm run cover:stats && npm run cover:send",
+        "cover:check": "npm run cover:stats && istanbul check-coverage",
+        "cover:stats": "istanbul cover tape -- ./test",
+        "cover:send": "cat ./coverage/lcov.info | coveralls",
+        "postversion": "git add package.json",
+        "precommit": "npm test && npm run cover:check && npm run docs && npm version prerelease --no-git-tag-version"
+    },
+    "dependencies": {
+        "chalk": "^2.1.0",
+        "columnify": "^1.5.4",
+        "debug": "^3.1.0",
+        "stack-trace": "0.0.10"
+    },
+    "devDependencies": {
+        "coveralls": "^2.13.1",
+        "husky": "^0.14.3",
+        "istanbul": "^0.4.5",
+        "jsdoc-to-markdown": "^3.0.0",
+        "nodemon": "^1.12.1",
+        "tap-spec": "^4.1.1",
+        "tape": "^4.8.0"
+    }
 }
