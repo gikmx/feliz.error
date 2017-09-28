@@ -1,7 +1,14 @@
 {
     "extends": "@gik/node",
-    "env":{
-        "browser" : false,
-        "node"    : true
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": [ "./src" ]
+            }
+        }
+    },
+    "rules": {
+        "no-param-reassign": "off",
+        "object-curly-newline": "off"
     }
 }
