@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "A simple error manager",
     "license": "MIT",
     "collaborators": [
