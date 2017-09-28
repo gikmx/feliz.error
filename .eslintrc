@@ -1,29 +1,7 @@
 {
-    "parserOptions":{
-        "ecmaVersion":6,
-        "ecmaFeatures": {
-        }
-    },
+    "extends": "@gik/node",
     "env":{
-        "browser" : true,
+        "browser" : false,
         "node"    : true
-    },
-    "rules":{
-        "comma-spacing"        : [2, {"before":false, "after":false}],
-        "quotes"               : [2, "single"],
-        "no-unused-vars"       : [1],
-        "no-unused-expressions": [1],
-        "no-use-before-define" : [1],
-        "comma-spacing"        : [1],
-        "dot-notation"         : [1],
-        "no-multi-spaces"      : [0],
-        "curly"                : [0],
-        "eol-last"             : [0],
-        "key-spacing"          : [0],
-        "new-cap"              : [0],
-        "no-underscore-dangle" : [0],
-        "no-process-exit"      : [0],
-        "no-new-wrappers"      : [0],
-        "camelcase"            : [0]
     }
 }

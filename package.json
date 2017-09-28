@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "A simple error manager",
     "license": "MIT",
-    "collaborators":[
+    "collaborators": [
         "Héctor Menéndez <etor@gik.mx>"
     ],
     "keywords": [
@@ -41,7 +41,9 @@
         "stack-trace": "0.0.10"
     },
     "devDependencies": {
+        "@gik/eslint-config-node": "0.0.1",
         "coveralls": "^2.13.1",
+        "eslint": "^4.7.2",
         "husky": "^0.14.3",
         "istanbul": "^0.4.5",
         "jsdoc-to-markdown": "^3.0.0",
