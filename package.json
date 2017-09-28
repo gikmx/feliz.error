@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A simple error manager",
     "license": "MIT",
     "collaborators": [
@@ -22,17 +22,18 @@
     },
     "main": "src/index.js",
     "scripts": {
-        "docs": "jsdoc2md -t ./template.hbs -d 1 'lib/**/*.js' > README.md",
+        "docs": "jsdoc2md -t ./template.hbs -d 1 'src/**/*.js' > README.md",
         "postdocs": "git add --force README.md",
         "test": "tape ./test | tap-spec",
         "debug": "node-debug --cli --no-debug-brk --debug-port 5900 --web-port 9900 --save-live-edit --no-preload",
-        "debug:watch": "nodemon ./test -x 'npm run docs && npm run debug -s' -w ./lib -w ./test | tap-spec",
+        "debug:watch": "nodemon ./test -x 'npm run docs && npm run debug -s' -w ./src -w ./test | tap-spec",
         "cover": "npm run cover:stats && npm run cover:send",
         "cover:check": "npm run cover:stats && istanbul check-coverage",
         "cover:stats": "istanbul cover tape -- ./test",
         "cover:send": "cat ./coverage/lcov.info | coveralls",
+        "prePublishOnly": "npm test && npm run cover:check",
         "postversion": "git add package.json",
-        "precommit": "npm test && npm run cover:check && npm run docs && npm version prerelease --no-git-tag-version"
+        "precommit": "npm run docs && npm version patch --no-git-tag-version"
     },
     "dependencies": {
         "chalk": "^2.1.0",
