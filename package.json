@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A simple error manager",
     "license": "MIT",
     "collaborators": [
@@ -32,7 +32,7 @@
         "cover:stats": "istanbul cover tape -- ./test",
         "cover:send": "cat ./coverage/lcov.info | coveralls",
         "prePublishOnly": "npm test && npm run cover:check",
-        "postversion": "git add package.json",
+        "postversion": "git add package*.json",
         "precommit": "npm run docs && npm version patch --no-git-tag-version"
     },
     "dependencies": {
