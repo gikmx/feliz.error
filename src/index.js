@@ -1,26 +1,17 @@
-import Exception from './exception';
-
-class CustomError extends Error {}
-class CustomTypeError extends TypeError {}
-
-const ERRORS = [
-    {
-        name: 'use',
-        class: CustomError,
-        templ: null,
-    },
-    {
-        name: 'type',
-        class: CustomTypeError,
-        templ: 'Invalid %name. expecting «%type», got: %data',
-    },
-];
+import PrepareStack from './stacktrace';
 
 /**
- * @module error
- * @todo Write documentation.
+ * Returns an error with easier to read stack, and with an optional custom name.
+ * @module Thrower
+ * @memberof Tools
+ * @param {string|Error} subject - Either a message for the error or an existing Error.
+ * @param {string} [name='Error'] - An identifier for the error type.
+ * @returns {Error} - A custom error instance with a pretty stack.
  */
-module.exports = ERRORS.reduce((acc, cur) => {
-    acc[cur.name] = Exception.bind(cur.class, { name: cur.name, templ: cur.templ });
-    return acc;
-}, Exception.bind(CustomError, {}));
+export default function Exception(subject, name = undefined) {
+    let error;
+    if (subject instanceof Error) error = subject;
+    else if (typeof subject === 'string') error = new Error(subject);
+    error.name = typeof name === 'string' ? name : 'Error';
+    return PrepareStack(error);
+}

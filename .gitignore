@@ -4,5 +4,8 @@ node_modules
 coverage
 .DS_*
 README.md
-
 .tern-port
+package-lock.json
+yarn.lock
+lib
+.nyc_output
