@@ -1,4 +1,4 @@
-# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.5*
+# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.6*
 > A simple error manager
 
 ## Contributors

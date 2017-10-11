@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "A simple error manager",
     "license": "MIT",
     "contributors": [
@@ -46,7 +46,7 @@
         "stack-trace": "0.0.10"
     },
     "devDependencies": {
-        "@gik/eslint-config-node": "0.0.1",
+        "@gik/eslint-config-node": "0.0.2",
         "nodemon": "^1.12.1"
     }
 }

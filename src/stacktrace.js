@@ -5,39 +5,59 @@ import Chalk from 'chalk';
 import Stack from 'stack-trace';
 import Columnify from 'columnify';
 
+export const Rules = [
+    {
+        type: 'internal',
+        find: new RegExp(`^internal${PATH.sep}|^[^${PATH.sep}]+.js`),
+        color: Chalk.gray,
+        slice: false,
+        filter: false,
+    }, {
+        type: 'module',
+        find: new RegExp(`node_modules${PATH.sep}`),
+        color: Chalk.red,
+        slice: true,
+        filter: false,
+    }, {
+        type: process.env.npm_package_name || PATH.basename(process.cwd()),
+        find: process.cwd(),
+        color: Chalk.red.bold,
+        slice: true,
+        filter: false,
+    },
+];
 
 export default function prepareStackTrace(error) {
-    const main = process.mainModule ? PATH.dirname(process.mainModule.filename) : '';
-    const modx = new RegExp(`node_modules${PATH.sep}`);
-    const intx = new RegExp(`^internal${PATH.sep}`);
-    const rules = [
-        { type: 'internal', find: intx, color: Chalk.gray, del: true },
-        { type: 'module', find: modx, color: Chalk.gray.bold, del: true },
-        { type: 'app', find: main, color: Chalk.red.bold, del: false },
-    ];
-    const lines = Stack.parse(error)
-        .map(function stackMapper(f) {
-            if (f.fileName === __filename) return null;
-            // const index = f.fileName.search(rules[1].find);
-            let found = false;
-            let rule = rules
-                .map(function ruleMapper(r) {
-                    if (found) return null;
-                    const match = f.fileName.match(r.find);
-                    if (match === null) return null;
-                    found = true;
-                    const index = r.del ? match.index + match[0].length : match.index;
-                    return Object.assign({ file: f.fileName.slice(index) }, r);
-                })
-                .filter(Boolean)
-                .shift();
-            if (!found) rule = { type: 'native', file: f.fileName, color: Chalk.gray };
-            return {
-                type: rule.color(rule.type),
-                pos: rule.color(`[${f.lineNumber}:${f.columnNumber}]`),
-                file: rule.color(rule.file),
-                cont: rule.color(f.functionName),
+    const lines = Stack
+        .parse(error)
+        // Omit calls that are either native or without a filename (?)
+        .filter(({ native, fileName }) => !!fileName && !native)
+        // Omit all stacks pointing to this file.
+        .filter(({ fileName }) => PATH.dirname(fileName) !== __dirname)
+        // Determine the type of stack by parsing the fileName.
+        .map(({ fileName, lineNumber, columnNumber, functionName, methodName }) => {
+            let color = Chalk.gray;
+            const stack = {
+                type: 'unknown',
+                pos: `[${lineNumber}:${columnNumber}]`,
+                file: fileName,
+                content: functionName || methodName,
             };
+            for (let i = 0; i < Rules.length; i++) {
+                const rule = Rules[i];
+                const r = fileName.match(rule.find);
+                if (r === null) continue; // eslint-disable-line no-continue
+                // matched, should it be filtered out?
+                if (rule.filter) return null;
+                color = rule.color; // eslint-disable-line prefer-destructuring
+                // update properties
+                stack.type = rule.type;
+                // should the matched text be sliced-out from the filename?
+                stack.file = fileName.slice(rule.slice ? r.index + r[0].length : r.index);
+                break;
+            }
+            Object.keys(stack).forEach((k) => { stack[k] = color(stack[k]); });
+            return stack;
         })
         .filter(Boolean);
     const stack = Columnify(lines, { showHeaders: false, align: 'left' });
