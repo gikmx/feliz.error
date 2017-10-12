@@ -35,7 +35,9 @@ export default function prepareStackTrace(error) {
         // Omit all stacks pointing to this file.
         .filter(({ fileName }) => PATH.dirname(fileName) !== __dirname)
         // Determine the type of stack by parsing the fileName.
+        /* eslint-disable object-curly-newline */
         .map(({ fileName, lineNumber, columnNumber, functionName, methodName }) => {
+            /* eslint-enable object-curly-newline */
             let color = Chalk.gray;
             const stack = {
                 type: 'unknown',

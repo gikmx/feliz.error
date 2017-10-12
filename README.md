@@ -1,8 +1,8 @@
-# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.6*
+# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.7*
 > A simple error manager
 
 ## Contributors
-* [Héctor Menéndez](mailto:hector@gik.mx) [http://hectormenendez.com](http://hectormenendez.com)
+* [Héctor Menéndez](mailto:hector@gik.mx) [hectormenendez.com](hectormenendez.com)
 
 # Usage
 
@@ -10,15 +10,15 @@
 
 ### Table of Contents
 
--   [Thrower](#thrower)
+-   [thrower](#thrower)
 
-## Thrower
+## thrower
 
 Returns an error with easier to read stack, and with an optional custom name.
 
 **Parameters**
 
 -   `subject` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error))** Either a message for the error or an existing Error.
--   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** An identifier for the error type. (optional, default `'Error'`)
+-   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** An identifier for the error type. (optional, default `Error`)
 
 Returns **[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)** A custom error instance with a pretty stack.

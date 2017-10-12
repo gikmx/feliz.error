@@ -1,5 +1,5 @@
 import Test from 'ava';
-import Thrower from '../lib/index';
+import Thrower from '../lib/thrower';
 
 Test('throws correctly', (test) => {
     function thrower() {

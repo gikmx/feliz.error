@@ -2,10 +2,11 @@ import PrepareStack from './stacktrace';
 
 /**
  * Returns an error with easier to read stack, and with an optional custom name.
- * @module Thrower
+ * @name thrower
  * @memberof Tools
+ *
  * @param {string|Error} subject - Either a message for the error or an existing Error.
- * @param {string} [name='Error'] - An identifier for the error type.
+ * @param {string} [name=Error] - An identifier for the error type.
  * @returns {Error} - A custom error instance with a pretty stack.
  */
 export default function Exception(subject, name = undefined) {

@@ -3,9 +3,8 @@ node_modules
 .git
 coverage
 .DS_*
-README.md
+lib
 .tern-port
 package-lock.json
 yarn.lock
-lib
 .nyc_output
