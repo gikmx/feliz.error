@@ -1,4 +1,4 @@
-# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.7*
+# [@gik/tools-thrower](https://github.com/gikmx/tools-thrower#readme) *0.1.8*
 > A simple error manager
 
 ## Contributors
@@ -18,7 +18,16 @@ Returns an error with easier to read stack, and with an optional custom name.
 
 **Parameters**
 
--   `subject` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error))** Either a message for the error or an existing Error.
+-   `subject` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error))** Either a message for the error, or an Error instance.-          If an array is sent, then performs string replacements ALA printf.
 -   `name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** An identifier for the error type. (optional, default `Error`)
+
+**Examples**
+
+```javascript
+const err1 = Thrower('test'); // A standard Error with modified stack
+const err2 = Thrower(new TypeError('test2')); // Standard TypeError with modified stack
+const err3 = Thrower('test3', 'TestError'); // An Error instance named TestError
+const err4 = Thrower(['hola %s', 'mundo'], 'HelloError'); // message = 'hola mundo'
+```
 
 Returns **[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)** A custom error instance with a pretty stack.
