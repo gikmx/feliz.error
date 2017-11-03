@@ -1,10 +1,10 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "A simple error manager",
     "license": "MIT",
     "contributors": [
-        "Héctor Menéndez <hector@gik.mx> (hectormenendez.com)"
+        "Héctor Menéndez <hector@gik.mx>"
     ],
     "keywords": [
         "error",
@@ -19,41 +19,35 @@
     "bugs": {
         "url": "https://github.com/gikmx/tools/issues"
     },
+    "os": [
+        "linux",
+        "darwin"
+    ],
     "engines": {
         "node": ">=6.11.3",
         "npm": ">=5.4.2"
     },
     "main": "lib/thrower.js",
     "directories": {
-        "test": "./test",
+        "test": "./__tests__",
         "src": "./src",
         "out": "./lib"
     },
     "scripts": {
-        "ver:beta": "gik-npm version:prerelease",
-        "ver:commit": "gik-npm version:patch",
-        "lint:docs": "gik-npm docs:lint",
-        "lint:code": "gik-npm lint:src",
-        "lint:test": "gik-npm lint:test",
-        "build": "npm run lint:code -s && gik-npm build",
-        "docs": "npm run lint:docs -s && gik-npm docs",
-        "test": "npm run lint:test -s && gik-npm test",
+        "build": "gik-npm lint src && gik-npm build",
+        "test": "gik-npm lint test && gik-npm test",
         "verify": "npm run build -s && npm run test -s",
-        "start": "nodemon -V -w $npm_package_directories_src -w $npm_package_directories_test -x 'npm run verify -s'",
-        "pub:beta": "npm run verify -s && npm run ver:beta -s && npm publish --access public --tag beta",
-        "pub:latest": "npm run verify -s && npm publish --access public --tag latest",
-        "precommit": "npm run verify -s && npm run ver:commit -s && npm run docs -s",
-        "prepublishOnly": "npm run docs -s"
+        "start": "gik-npm start 'npm run verify -s'",
+        "pub": "npm run verify -s && gik-npm docs && npm publish --access public --tag",
+        "precommit": "npm run verify -s && gik-npm version patch && gik-npm docs"
     },
     "dependencies": {
         "chalk": "^2.1.0",
         "columnify": "^1.5.4",
-        "debug": "^3.1.0",
         "stack-trace": "0.0.10"
     },
     "devDependencies": {
-        "@gik/eslint-config": "0.0.3",
-        "@gik/npm": "0.0.29",
-        "nodemon": "^1.12.1"
+        "@gik/eslint-config": "0.0.4",
+        "@gik/npm": "^0.1.8"
     }
 }

@@ -1,12 +1,13 @@
 import PrepareStack from './stacktrace';
 
 /**
- * This is the replacement function used internally when an array subject is sent.
- * @memberof Tools.thrower
+ * @memberof thrower
+ * @private
+ * @description Function used internally when an array subject is sent.
  *
- * @param {string} message
- * @param {Array} replacements
- * @returns {string}
+ * @param {string} message - The string with replacement patterns.
+ * @param {Array} replacements - The replacements.
+ * @returns {string} - A string with resolved replacements.
  */
 export function Replacer(message, replacements) {
     let result = message;
@@ -17,9 +18,9 @@ export function Replacer(message, replacements) {
 }
 
 /**
- * Returns an error with easier to read stack, and with an optional custom name.
- * @name thrower
- * @memberof Tools
+ * @module thrower
+ * @description Throws an exception with easier to read and colored stack trace and
+ * customizable name.
  *
  * @param {string|Array|Error} subject - The message or an Error instance to beautify.
  * When an array is sent, replace subject ALA printf. signature:`[subject, ...replacements]`
@@ -27,7 +28,7 @@ export function Replacer(message, replacements) {
  * @param {boolean} [throws=true] - If false, return error instance instead of throwing.
  * @returns {Error} - A custom error instance with a pretty stack.
  *
- * @example
+ * @example @lang js
  * Thrower('test'); // A standard Error with prettified stack
  * Thrower(new TypeError('test2')); // Standard TypeError with prettified stack
  * Thrower('test3', 'TestError'); // Custom TestError with 'test3' as message
@@ -36,20 +37,17 @@ export function Replacer(message, replacements) {
  */
 export default function Exception(subject, name = undefined, throws = true) {
     let error;
-    /* eslint-disable */
     if (subject instanceof Error) {
         error = subject;
-        if (!name) name = subject.name;
-    }
-    /* eslint-enable */
+        if (!name) name = subject.name; // eslint-disable-line
+    } // eslint-disable-line
     else if (typeof subject === 'string')
         error = new Error(subject);
     else if (Array.isArray(subject))
         error = new Error(Replacer(subject[0], subject.slice(1)));
     else {
-        throw new TypeError(
-            `Invalid subject, expected {string|Array|Error}, got "${typeof subject}"`,
-        );
+        const m = `Invalid subject, expected {string|Array|Error}, got "${typeof subject}"`;
+        throw new TypeError(m);
     }
     error.name = typeof name === 'string' ? name : 'Error';
     const instance = PrepareStack(error);
