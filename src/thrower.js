@@ -19,8 +19,9 @@ export function Replacer(message, replacements) {
 
 /**
  * @module thrower
- * @description Throws an exception with easier to read and colored stack trace and
- * customizable name.
+ * @description Errors with pretty stack and customizable name.
+ * > - [Standalone version](https://github.com/gikmx/tools-streamer).
+ * > - [Report a Bug](https://github.com/gikmx/tools-streamer/issues).
  *
  * @param {string|Array|Error} subject - The message or an Error instance to beautify.
  * When an array is sent, replace subject ALA printf. signature:`[subject, ...replacements]`

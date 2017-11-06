@@ -1,9 +1,9 @@
 {
     "name": "@gik/tools-thrower",
     "version": "0.1.11",
-    "description": "A simple error manager",
+    "description": "Errors with pretty stack and customizable name. Part of our [tools suite](https://github.com/gikmx/tools).",
     "license": "MIT",
-    "homepage": "https://github.com/gikmx/tools",
+    "homepage": "http://gik.mx",
     "contributors": [
         "Héctor Menéndez <hector@gik.mx>"
     ],

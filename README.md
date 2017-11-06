@@ -1,5 +1,5 @@
-# [@gik/tools-thrower](https://github.com/gikmx/tools) *0.1.11*
-> A simple error manager
+# [@gik/tools-thrower](http://gik.mx) *0.1.11*
+> Errors with pretty stack and customizable name. Part of our [tools suite](https://github.com/gikmx/tools).
 
 ##### Contributors
 - [Héctor Menéndez](mailto:hector@gik.mx) []()
@@ -9,13 +9,14 @@
 - darwin
 
 #### <a name="table-of-contents"></a> Table of contents
-- **[thrower](#thrower)** Throws an exception with easier to read and colored stack trace and
+- **[thrower](#thrower)** Errors with pretty stack and customizable name.
 
 
 # <a name="thrower"></a> thrower
 
-Throws an exception with easier to read and colored stack trace and
-customizable name.
+Errors with pretty stack and customizable name.
+> - [Standalone version](https://github.com/gikmx/tools-streamer).
+> - [Report a Bug](https://github.com/gikmx/tools-streamer/issues).
 
 ###### Parameters
 <table>
