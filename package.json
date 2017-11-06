@@ -3,6 +3,7 @@
     "version": "0.1.11",
     "description": "A simple error manager",
     "license": "MIT",
+    "homepage": "https://github.com/gikmx/tools",
     "contributors": [
         "Héctor Menéndez <hector@gik.mx>"
     ],
