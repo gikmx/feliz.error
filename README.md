@@ -1,4 +1,4 @@
-# [@gik/tools-thrower](http://gik.mx) *0.1.11*
+# [@gik/tools-thrower](http://gik.mx) *0.1.12*
 > Errors with pretty stack and customizable name. Part of our [tools suite](https://github.com/gikmx/tools).
 
 ##### Contributors

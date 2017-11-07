@@ -1,6 +1,6 @@
 {
     "name": "@gik/tools-thrower",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "description": "Errors with pretty stack and customizable name. Part of our [tools suite](https://github.com/gikmx/tools).",
     "license": "MIT",
     "homepage": "http://gik.mx",
@@ -49,6 +49,6 @@
     },
     "devDependencies": {
         "@gik/eslint-config": "0.0.4",
-        "@gik/npm": "^0.1.10"
+        "@gik/npm": "^0.1.11"
     }
 }
